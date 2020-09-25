@@ -19,5 +19,10 @@
         print "<p>Welcome, Guest!</p>\n<p><a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>.</p>\n";
       }
     ?>
+    <br>
+    <h2>Categories</h2>
+    <?php
+      // sql select cat table
+    ?>
   </body>
 </html>
