@@ -20,7 +20,7 @@ function isLoggedIn($u,$dbc){
   $r = mysqli_query($dbc, "SELECT password FROM users WHERE username = '$u'");
   if (mysqli_num_rows($r) == 0) { return false; }
 	else {
-		$row = mysqli_fetch_array($r, MYSQL_ASSOC);
+		$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 		if($_COOKIE['token'] == md5(strtolower($u).":".$row['password'])){
 			 return true;
 		}

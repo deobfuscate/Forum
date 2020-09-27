@@ -12,6 +12,8 @@
   	<h1>Home</h1>
 		<?php
       if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
+      if (isset($_GET['id'])) $forum = $_GET['id'];
+      if (!isset($forum)) die("No forum selected.");
       if (isset($u) && isLoggedin($u,$dbc)) {
         print "<p>Welcome back, {$u}!</p>\n<p><a href=\"logout.php\">Logout</a></p>\n";
       }
@@ -20,12 +22,12 @@
       }
     ?>
     <br>
-    <h2>Categories</h2>
+    <h2>Topics</h2>
     <?php
-      $sql = "SELECT * FROM `categories` ORDER BY `id` ASC";
+      $sql = "SELECT * FROM `topics` WHERE `topics`.`category` = {$forum} ORDER BY `time` ASC";
       $q = mysqli_query($dbc, $sql);
       while ($r = mysqli_fetch_array($q, MYSQLI_ASSOC)) {
-        print "<a href=\"forum.php?id={$r["id"]}\">{$r["name"]}</a><br><i>{$r["description"]}</i><br><br>";
+        print "{$r["title"]}<br><i>{$r["time"]}</i><br><br>";
       }
     ?>
   </body>
