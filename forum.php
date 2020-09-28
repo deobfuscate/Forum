@@ -24,10 +24,10 @@
     <br>
     <h2>Topics</h2>
     <?php
-      $sql = "SELECT * FROM `topics` WHERE `topics`.`category` = {$forum} ORDER BY `time` ASC";
+      $sql = "SELECT topics.id, topics.title, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE `topics`.`category` = {$forum} ORDER BY `time` ASC";
       $q = mysqli_query($dbc, $sql);
       while ($r = mysqli_fetch_array($q, MYSQLI_ASSOC)) {
-        print "{$r["title"]}<br><i>{$r["time"]}</i><br><br>";
+        print "<a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
       }
     ?>
   </body>
