@@ -1,6 +1,6 @@
 <?php
-	include("includes/mysqli.php");
-	include("includes/functions.php");
+  include("includes/mysqli.php");
+  include("includes/functions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,11 +22,10 @@
       }
     ?>
     <br>
-    <h2>Topics</h2>
+    <h2>Topic</h2>
     <?php
       //topic post
-
-    $sql = "SELECT topics.title, topics.body, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.id = {$parent}";
+      $sql = "SELECT topics.title, topics.body, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.id = {$parent}";
       $q = mysqli_query($dbc, $sql);
       $r = mysqli_fetch_array($q, MYSQLI_ASSOC);
       print "<h3>{$r["title"]}</h3>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
