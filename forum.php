@@ -24,9 +24,12 @@
     <br>
     <h2>Topics</h2>
     <?php
-      $sql = "SELECT topics.id, topics.title, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.category = {$forum} ORDER BY time ASC";
-      $q = mysqli_query($dbc, $sql);
-      while ($r = mysqli_fetch_array($q, MYSQLI_ASSOC)) {
+      $query = "SELECT topics.id, topics.title, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.category = ? ORDER BY time ASC";
+      $stmt = $dbc->prepare($query);
+      $stmt->bind_param("s", $forum);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while ($r = $result->fetch_assoc()) {
         print "<a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
       }
     ?>

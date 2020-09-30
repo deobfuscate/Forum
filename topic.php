@@ -25,15 +25,21 @@
     <h2>Topic</h2>
     <?php
       //topic post
-      $sql = "SELECT topics.title, topics.body, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.id = {$parent}";
-      $q = mysqli_query($dbc, $sql);
-      $r = mysqli_fetch_array($q, MYSQLI_ASSOC);
+      $query = "SELECT topics.title, topics.body, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.id = ? LIMIT 1";
+      $stmt = $dbc->prepare($query);
+      $stmt->bind_param("s", $parent);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $r = $result->fetch_assoc();
       print "<h3>{$r["title"]}</h3>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
 
       //replies
-      $sql = "SELECT posts.body, posts.time, users.username FROM posts INNER JOIN users ON posts.author = users.id WHERE posts.parent = {$parent} ORDER BY time ASC";
-      $q = mysqli_query($dbc, $sql);
-      while ($r = mysqli_fetch_array($q, MYSQLI_ASSOC)) {
+      $query = "SELECT posts.body, posts.time, users.username FROM posts INNER JOIN users ON posts.author = users.id WHERE posts.parent = ? ORDER BY time ASC";
+      $stmt = $dbc->prepare($query);
+      $stmt->bind_param("s", $parent);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while ($r = $result->fetch_assoc()) {
         print "{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
       }
     ?>
