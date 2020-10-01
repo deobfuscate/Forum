@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Register</title>
-  <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
-  <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/register.js"></script>
-</head>
-<body>
-<h1>Register</h1>
+	<head>
+		<meta charset="utf-8">
+		<title>Register</title>
+		<link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/register.js"></script>
+	</head>
+	<body>
+		<h1>Register</h1>
 <?php
-$html = '  <form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
-						<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus> <span id="exists">&nbsp;</span></p>
-						<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>
-						<p><input name="confirm" type="password" size="32" maxlength="32" placeholder="Confirm Password"></p>
-						<p><input name="email" type="email" size="64" maxlength="64" placeholder="Email"></p>
-						<p><button>Register!</button></p>
-					</form>';
+$html = '		<form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
+			<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus> <span id="exists">&nbsp;</span></p>
+			<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>
+			<p><input name="confirm" type="password" size="32" maxlength="32" placeholder="Confirm Password"></p>
+			<p><input name="email" type="email" size="64" maxlength="64" placeholder="Email"></p>
+			<p><button>Register!</button></p>
+		</form>
+';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	include("includes/mysqli.php");
@@ -58,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		$r = mysqli_query($dbc, $sql);
 		if (mysqli_affected_rows($dbc) == 1) {
-			print "<p>You have successfully registered.</p>\n<p><a href=\"login.php\">Login</a>.</p>\n";
+			print "		<p>You have successfully registered.</p>\n<p><a href=\"login.php\">Login</a>.</p>\n";
 		} else {
-			print "<p class=\"error\">Could not register because:<br>".mysqli_error($dbc)."</p><p>The query being run was: ".$sql."</p>\n";
+			print "		<p class=\"error\">Could not register because:<br>".mysqli_error($dbc)."</p><p>The query being run was: ".$sql."</p>\n";
 		}
 	} 
 	else {
@@ -72,5 +73,5 @@ else {
 	print $html;
 }
 ?>
-</body>
+	</body>
 </html>
