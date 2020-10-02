@@ -21,9 +21,9 @@
 ?>
 		<h2>Post</h2>
 		<form action="post.php" method="post" enctype="multipart/form-data" name="thread">
-		<p><input name="subject" type="text" placeholder="Subject"></p>
-		<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
-		<p><input name="" type="submit"></p>
+			<p><input name="subject" type="text" placeholder="Subject"></p>
+			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
+			<p><input name="" type="submit"></p>
 		</form>
 	</body>
 </html>

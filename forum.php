@@ -29,8 +29,12 @@
 	$stmt->bind_param("s", $forum);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	while ($r = $result->fetch_assoc()) {
-		print "		<a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i><br><br>\n";
+	if ($result->num_rows > 0)
+		while ($r = $result->fetch_assoc()) {
+			print "		<p><a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
+		}
+	else {
+		print "		<p>No topics to display.</p>\n";
 	}
 ?>
 	</body>
