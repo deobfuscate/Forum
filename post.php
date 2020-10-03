@@ -19,11 +19,21 @@
 		print "		<p>Welcome, Guest!</p>\n		<p><a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>.</p>\n";
 	}
 ?>
-		<h2>Post</h2>
+		<h2>Post a new topic</h2>
+<?php
+	if (isset($_GET['cat'])) {
+		$cat = $_GET['cat'];
+?>
 		<form action="post.php" method="post" enctype="multipart/form-data" name="thread">
 			<p><input name="subject" type="text" placeholder="Subject"></p>
 			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
 			<p><input name="" type="submit"></p>
 		</form>
+<?php
+	}
+	else {
+		print "		<p>Invalid category specified.</p>\n";
+	}
+?>
 	</body>
 </html>
