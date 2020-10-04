@@ -23,6 +23,7 @@
 ?>
 		<br>
 		<h2>Topics</h2>
+		<p><a href="post.php?cat=<?=$forum?>">Post a new topic</a></p>
 <?php
 	$query = "SELECT topics.id, topics.title, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.category = ? ORDER BY time ASC";
 	$stmt = $dbc->prepare($query);
