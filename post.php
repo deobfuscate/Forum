@@ -37,24 +37,24 @@
 		$stmt->bind_param("ssss", $_POST['subject'], $_POST['body'], $author['id'], $_POST['cat']);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		print "		<p>Topic posted. Click <a href=\"topic.php?id={$r['id']}\">here</a> to view it.</p>\n";
+		print "		<p>Topic posted. Click <a href=\"topic.php?id={$stmt->insert_id}\">here</a> to view it.</p>\n";
 	}
 
-	
-	if (!isset($_GET['cat'])) 
-		print "		<p>Invalid category specified.</p>\n";
-	elseif (!isLoggedin($u,$dbc))
-		print "		<p>You must me logged in to create a topic.</p>\n";
 	else {
-		$cat = $_GET['cat'];
+		if (!isset($_GET['cat'])) 
+			print "		<p>Invalid category specified.</p>\n";
+		elseif (!isset($u) || !isLoggedin($u,$dbc))
+			print "		<p>You must me logged in to create a topic.</p>\n";
+		else {
 ?>
 		<form action="post.php" method="post" enctype="multipart/form-data" name="thread">
 			<p><input name="subject" type="text" placeholder="Subject"></p>
 			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
 			<p><input name="" type="submit"></p>
-			<input name="cat" type="hidden" value="<?=$cat?>">
+			<input name="cat" type="hidden" value="<?=$_GET['cat']?>">
 		</form>
 <?php
+		}
 	}
 ?>
 	</body>

@@ -31,12 +31,10 @@
 	$stmt->execute();
 	$result = $stmt->get_result();
 	if ($result->num_rows > 0)
-		while ($r = $result->fetch_assoc()) {
+		while ($r = $result->fetch_assoc())
 			print "		<p><a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
-		}
-	else {
+	else
 		print "		<p>No topics to display.</p>\n";
-	}
 ?>
 	</body>
 </html>
