@@ -23,6 +23,7 @@
 ?>
 		<br>
 		<h2>Topic</h2>
+		<p><a href="reply.php?topic=<?=$parent?>">Post a reply</a></p>
 <?php
 	//topic post
 	$query = "SELECT topics.title, topics.body, topics.time, users.username FROM topics INNER JOIN users ON topics.author = users.id WHERE topics.id = ? LIMIT 1";

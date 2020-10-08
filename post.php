@@ -19,6 +19,7 @@
 		print "		<p>Welcome, Guest!</p>\n		<p><a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>.</p>\n";
 	}
 ?>
+		<br>
 		<h2>Post a new topic</h2>
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject']) && isset($_POST['body']) && isset($_POST['cat'])) {
