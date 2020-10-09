@@ -1,14 +1,7 @@
 <?php
-	include("includes/mysqli.php");
-	include("includes/functions.php");
+	define("TOPIC", "Post a New Topic");
+	include("includes/header.php");
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>
-	<body>
 		<h1>Home</h1>
 <?php
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
@@ -57,6 +50,6 @@
 <?php
 		}
 	}
+
+	include("includes/footer.php");
 ?>
-	</body>
-</html>

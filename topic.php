@@ -1,14 +1,7 @@
 <?php
-	include("includes/mysqli.php");
-	include("includes/functions.php");
+	define("TOPIC", "View Topic");
+	include("includes/header.php");
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>
-	<body>
 		<h1>Home</h1>
 <?php
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
@@ -48,6 +41,5 @@
 		print "		<p>Specified topic does not exist.</p>\n";
 	}
 
+	include("includes/footer.php");
 ?>
-	</body>
-</html>

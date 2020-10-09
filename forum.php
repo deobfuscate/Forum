@@ -1,14 +1,7 @@
 <?php
-	include("includes/mysqli.php");
-	include("includes/functions.php");
+	define("TOPIC", "View Forum");
+	include("includes/header.php");
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>
-	<body>
 		<h1>Home</h1>
 <?php
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
@@ -35,6 +28,6 @@
 			print "		<p><a href=\"topic.php?id={$r["id"]}\">{$r["title"]}</a><br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
 	else
 		print "		<p>No topics to display.</p>\n";
+
+	include("includes/footer.php");
 ?>
-	</body>
-</html>

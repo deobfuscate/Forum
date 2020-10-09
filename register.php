@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Register</title>
-		<link href="assets/css/styles.css" rel="stylesheet" type="text/css">
-		<script src="assets/js/jquery.js"></script>
-		<script src="assets/js/register.js"></script>
-	</head>
-	<body>
+<?php
+	define("TOPIC", "Register");
+	include("includes/header.php");
+?>
 		<h1>Register</h1>
 <?php
 $html = '		<form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
@@ -72,6 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 else {
 	print $html;
 }
+
+	include("includes/footer.php");
 ?>
-	</body>
-</html>

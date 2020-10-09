@@ -27,15 +27,10 @@
 		}
 		mysqli_close($dbc);
 	}
+
+	define("TOPIC", "Login");
+	include("includes/header.php");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-		<title>Login</title>
-	</head>
-	<body>
 		<h1>Login</h1>
 <?php
 	if(isset($msg)) { 
@@ -43,9 +38,10 @@
 	}
 ?>
 		<form action="<?php print $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data" name="login">
-		<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus></p>
-		<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>
-		<p><button>Login</button></p>
+			<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus></p>
+			<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>
+			<p><button>Login</button></p>
 		</form>
-	</body>
-</html>
+<?php
+	include("includes/footer.php");
+?>
