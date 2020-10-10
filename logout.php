@@ -4,7 +4,7 @@
 	setcookie("username", "", time() - 3600, "/");
 	setcookie("token", "", time() - 3600, "/");
 
-	define("TOPIC", "Logout");
+	define("TITLE", "Logout");
 	include("includes/header.php");
 ?>
 		<h1>Logout</h1>

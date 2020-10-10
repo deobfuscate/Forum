@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "Register");
+	define("TITLE", "Register");
 	include("includes/header.php");
 ?>
 		<h1>Register</h1>

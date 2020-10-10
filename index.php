@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "Index");
+	define("TITLE", "Categories");
 	include("includes/header.php");
 ?>
 		<h1>Home</h1>

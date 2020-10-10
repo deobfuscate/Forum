@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "Reply to a Topic");
+	define("TITLE", "Reply to a Topic");
 	include("includes/header.php");
 ?>
 		<h1>Home</h1>

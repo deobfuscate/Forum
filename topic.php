@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "View Topic");
+	define("TITLE", "View Topic");
 	include("includes/header.php");
 ?>
 		<h1>Home</h1>
@@ -15,7 +15,7 @@
 	}
 ?>
 		<br>
-		<h2>Topic</h2>
+		<h2>View Topic</h2>
 		<p><a href="reply.php?topic=<?=$parent?>">Post a reply</a></p>
 <?php
 	//topic post

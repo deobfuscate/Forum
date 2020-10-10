@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "Post a New Topic");
+	define("TITLE", "Post a New Topic");
 	include("includes/header.php");
 ?>
 		<h1>Home</h1>

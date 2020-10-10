@@ -1,5 +1,5 @@
 <?php
-	define("TOPIC", "View Forum");
+	define("TITLE", "View Forum");
 	include("includes/header.php");
 ?>
 		<h1>Home</h1>

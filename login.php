@@ -28,7 +28,7 @@
 		mysqli_close($dbc);
 	}
 
-	define("TOPIC", "Login");
+	define("TITLE", "Login");
 	include("includes/header.php");
 ?>
 		<h1>Login</h1>
