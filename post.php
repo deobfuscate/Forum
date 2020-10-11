@@ -38,7 +38,7 @@
 		if (!isset($_GET['cat'])) 
 			print "		<p>Invalid category specified.</p>\n";
 		elseif (!isset($u) || !isLoggedin($u,$dbc))
-			print "		<p>You must me logged in to create a topic.</p>\n";
+			print "		<p>You must be logged in to create a topic.</p>\n";
 		else {
 ?>
 		<form action="post.php" method="post" enctype="multipart/form-data" name="thread">

@@ -38,7 +38,7 @@
 		if (!isset($_GET['topic'])) 
 			print "		<p>Invalid topic specified.</p>\n";
 		elseif (!isset($u) || !isLoggedin($u,$dbc))
-			print "		<p>You must me logged in to create a topic.</p>\n";
+			print "		<p>You must be logged in to reply to a topic.</p>\n";
 		else {
 ?>
 		<form action="reply.php" method="post" enctype="multipart/form-data" name="thread">
