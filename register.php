@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$c = $_POST['confirm'];
 	$e = mysqli_real_escape_string($dbc, strip_tags($_POST['email']));
 
-	$message = "";
+	$message = "		";
 	$problem = false;
 	$aValid = array('-', '_');
 	
