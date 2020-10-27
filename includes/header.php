@@ -1,7 +1,7 @@
 <?php
 	if (!defined('TITLE')) exit();
-    include("includes/mysqli.php");
-	include("includes/functions.php");
+	include_once("includes/mysqli.php");
+	include_once("includes/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

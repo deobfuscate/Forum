@@ -1,7 +1,7 @@
 <?php
 	if (!empty($_POST)) {
-		include("includes/mysqli.php");
-		include("includes/functions.php");
+		include_once("includes/mysqli.php");
+		include_once("includes/functions.php");
 		
 		$u = mysqli_real_escape_string($dbc, strip_tags($_POST['username']));
 		$p = mysqli_real_escape_string($dbc, $_POST['password']);
@@ -29,7 +29,7 @@
 	}
 
 	define("TITLE", "Login");
-	include("includes/header.php");
+	include_once("includes/header.php");
 ?>
 		<h1>Login</h1>
 <?php
