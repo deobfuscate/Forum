@@ -27,8 +27,8 @@
 		//post
 		$query = "INSERT INTO posts (body, parent, author) VALUES (?, ?, ?)";
 		$stmt = $dbc->prepare($query);
-
-		$stmt->bind_param("sss", $_POST['body'], $_POST['topic'], $author['id']);
+		$sanitized_body = htmlspecialchars($_POST['body']);
+		$stmt->bind_param("sss", $sanitized_body, $_POST['topic'], $author['id']);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		print "		<p>Reply posted. Click <a href=\"topic.php?id={$_POST['topic']}\">here</a> to view it.</p>\n";

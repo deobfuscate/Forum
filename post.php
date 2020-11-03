@@ -27,8 +27,9 @@
 		//post
 		$query = "INSERT INTO topics (title, body, author, category) VALUES (?, ?, ?, ?)";
 		$stmt = $dbc->prepare($query);
-
-		$stmt->bind_param("ssss", $_POST['subject'], $_POST['body'], $author['id'], $_POST['cat']);
+		$sanitized_subject = htmlspecialchars($_POST['subject']);
+		$sanitized_body = htmlspecialchars($_POST['body']);
+		$stmt->bind_param("ssss", $sanitized_subject, $sanitized_body, $author['id'], $_POST['cat']);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		print "		<p>Topic posted. Click <a href=\"topic.php?id={$stmt->insert_id}\">here</a> to view it.</p>\n";
