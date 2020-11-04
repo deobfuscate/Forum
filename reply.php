@@ -41,7 +41,7 @@
 			print "		<p>You must be logged in to reply to a topic.</p>\n";
 		else {
 ?>
-		<form action="reply.php" method="post" enctype="multipart/form-data" name="thread">
+		<form action="reply.php" method="post" enctype="multipart/form-data">
 			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
 			<p><input name="" type="submit"></p>
 			<input name="topic" type="hidden" value="<?=$_GET['topic']?>">

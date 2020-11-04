@@ -42,7 +42,7 @@
 			print "		<p>You must be logged in to create a topic.</p>\n";
 		else {
 ?>
-		<form action="post.php" method="post" enctype="multipart/form-data" name="thread">
+		<form action="post.php" method="post" enctype="multipart/form-data">
 			<p><input name="subject" type="text" placeholder="Subject"></p>
 			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
 			<p><input name="" type="submit"></p>
