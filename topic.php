@@ -5,7 +5,7 @@
 		<h1>Home</h1>
 <?php
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
-	if (isset($_GET['id'])) $parent = $_GET['id'];
+	if (isset($_GET['id'])) $parent = htmlspecialchars($_GET['id']);
 	if (!isset($parent)) die("No forum selected.");
 	if (isset($u) && isLoggedin($u,$dbc)) {
 		print "		<p>Welcome back, {$u}!</p>\n		<p><a href=\"logout.php\">Logout</a></p>\n";
