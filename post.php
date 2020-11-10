@@ -44,7 +44,7 @@
 ?>
 		<form action="post.php" method="post" enctype="multipart/form-data">
 			<p><input name="subject" type="text" placeholder="Subject"></p>
-			<p><textarea name="body" cols="30" rows="5" placeholder="Body"></textarea></p>
+			<p><textarea name="body" cols="30" rows="5"></textarea></p>
 			<p><input name="" type="submit"></p>
 			<input name="cat" type="hidden" value="<?=$_GET['cat']?>">
 		</form>
