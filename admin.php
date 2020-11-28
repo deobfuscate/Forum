@@ -14,8 +14,20 @@
 ?>
 		<br>
 		<h2>Admin</h2>
+<?php
+	if(isset($_POST['forum_name'])) {
+		$forum_name = htmlspecialchars($_POST['forum_name']);
+		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'forum_name'";
+		$stmt = $dbc->prepare($query);
+		$stmt->bind_param("s", $forum_name);
+		if ($stmt->execute())
+			print "		<p>Forum Name changed successfully.</p>\n";
+		else
+			print "		<p>Failed to change Forum Name.</p>\n";
+	}
+?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
-			<p>Site Name:<br><input name="site_name" type="text" size="32" id="site_name" autofocus></p>
+			<p>Forum Name:<br><input name="forum_name" type="text" size="32" id="forum_name" autofocus></p>
 			<p><button>Save</button></p>
 		</form>
 <?php
