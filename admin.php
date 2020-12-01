@@ -15,7 +15,7 @@
 		<br>
 		<h2>Admin</h2>
 <?php
-	if(isset($_POST['forum_name'])) {
+	if (isset($_POST['forum_name'])) {
 		$forum_name = htmlspecialchars($_POST['forum_name']);
 		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'forum_name'";
 		$stmt = $dbc->prepare($query);
@@ -25,9 +25,20 @@
 		else
 			print "		<p>Failed to change Forum Name.</p>\n";
 	}
+	if (isset($_POST['max_topics'])) {
+		$max_topics = htmlspecialchars($_POST['max_topics']);
+		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'max_topics'";
+		$stmt = $dbc->prepare($query);
+		$stmt->bind_param("s", $max_topics);
+		if ($stmt->execute())
+			print "		<p>Max topics changed successfully.</p>\n";
+		else
+			print "		<p>Failed to change Max topics.</p>\n";
+	}
 ?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
 			<p>Forum Name:<br><input name="forum_name" type="text" size="32" id="forum_name" autofocus></p>
+			<p>Max topics to display on main page:<br><input name="max_topics" type="number" size="5" id="max_name"></p>
 			<p><button>Save</button></p>
 		</form>
 <?php
