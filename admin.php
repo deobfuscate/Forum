@@ -35,10 +35,21 @@
 		else
 			print "		<p>Failed to change Max topics.</p>\n";
 	}
+	if (isset($_POST['max_posts'])) {
+		$max_posts = htmlspecialchars($_POST['max_posts']);
+		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'max_posts'";
+		$stmt = $dbc->prepare($query);
+		$stmt->bind_param("s", $max_posts);
+		if ($stmt->execute())
+			print "		<p>Max posts changed successfully.</p>\n";
+		else
+			print "		<p>Failed to change Max posts.</p>\n";
+	}
 ?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
 			<p>Forum Name:<br><input name="forum_name" type="text" size="32" id="forum_name" autofocus></p>
-			<p>Max topics to display on main page:<br><input name="max_topics" type="number" size="5" id="max_name"></p>
+			<p>Max topics to display on topic list:<br><input name="max_topics" type="number" size="5" id="max_name"></p>
+			<p>Max posts to display on thread page:<br><input name="max_posts" type="number" size="5" id="max_posts"></p>
 			<p><button>Save</button></p>
 		</form>
 <?php
