@@ -15,7 +15,7 @@
 		<br>
 		<h2>Admin</h2>
 <?php
-	if (isset($_POST['forum_name'])) {
+	if (isset($_POST['forum_name']) && !empty($_POST['forum_name'])) {
 		$forum_name = htmlspecialchars($_POST['forum_name']);
 		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'forum_name'";
 		$stmt = $dbc->prepare($query);
@@ -25,7 +25,7 @@
 		else
 			print "		<p>Failed to change Forum Name.</p>\n";
 	}
-	if (isset($_POST['max_topics'])) {
+	if (isset($_POST['max_topics']) && !empty($_POST['max_topics'])) {
 		$max_topics = htmlspecialchars($_POST['max_topics']);
 		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'max_topics'";
 		$stmt = $dbc->prepare($query);
@@ -35,7 +35,7 @@
 		else
 			print "		<p>Failed to change Max topics.</p>\n";
 	}
-	if (isset($_POST['max_posts'])) {
+	if (isset($_POST['max_posts']) && !empty($_POST['max_posts'])) {
 		$max_posts = htmlspecialchars($_POST['max_posts']);
 		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'max_posts'";
 		$stmt = $dbc->prepare($query);
