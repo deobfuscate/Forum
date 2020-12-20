@@ -6,3 +6,9 @@ A simple forum system using PHP and MySQL
 * Customizable options
 * User registration
 * Memberlist page
+
+## Planned features
+* Robust pagination
+* Custom theme system
+* User management
+* Moderation panel
