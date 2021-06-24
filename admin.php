@@ -47,7 +47,19 @@
 	}
 ?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
-			<p>Forum Name:<br><input name="forum_name" type="text" size="32" id="forum_name" autofocus></p>
+<?php
+		$query = "SELECT settings.value FROM settings WHERE settings.setting = 'forum_name' LIMIT 1";
+		$stmt = $dbc->prepare($query);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		if ($result->num_rows > 0) {
+			$r = $result->fetch_assoc();
+			print "			<p>Forum Name:<br><input name=\"forum_name\" type=\"text\" size=\"32\" id=\"forum_name\" value=\"{$r["value"]}\" autofocus></p>\n";
+		}
+		else {
+			print "			<p>Forum Name:<br><input name=\"forum_name\" type=\"text\" size=\"32\" id=\"forum_name\" autofocus></p>\n";
+		}
+?>
 			<p>Max topics to display on topic list:<br><input name="max_topics" type="number" size="5" id="max_name"></p>
 			<p>Max posts to display on thread page:<br><input name="max_posts" type="number" size="5" id="max_posts"></p>
 			<p><button>Save</button></p>
