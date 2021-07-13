@@ -7,12 +7,10 @@
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
 	if (isset($_GET['id'])) $parent = htmlspecialchars($_GET['id']);
 	if (!isset($parent)) die("No forum selected.");
-	if (isset($u) && isLoggedin($u,$dbc)) {
+	if (isset($u) && isLoggedin($u,$dbc))
 		print "		<p>Welcome back, {$u}!</p>\n		<p><a href=\"logout.php\">Logout</a></p>\n";
-	}
-	else {
+	else
 		print "		<p>Welcome, Guest!</p>\n		<p><a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>.</p>\n";
-	}
 ?>
 		<br>
 		<h2>View Topic</h2>
@@ -33,13 +31,11 @@
 		$stmt->bind_param("s", $parent);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		while ($r = $result->fetch_assoc()) {
+		while ($r = $result->fetch_assoc())
 			print "		<p>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
-		}
 	}
-	else {
+	else
 		print "		<p>Specified topic does not exist.</p>\n";
-	}
 
 	include("includes/footer.php");
 ?>
