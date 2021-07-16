@@ -8,12 +8,10 @@
 	
 		$sql = "SELECT * FROM `users` WHERE `username` LIKE '$u' LIMIT 1";
 		$r = mysqli_query($dbc, $sql);
-		if (!$r) {
+		if (!$r)
 			$msg = "Error: " . mysqli_error($dbc);
-		}
-		elseif (mysqli_affected_rows($dbc) == 0) {
+		elseif (mysqli_affected_rows($dbc) == 0)
 			$msg = "Username does not exist.";
-		}
 		else while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 			if (strtolower($u) == strtolower($row['username']) && md5($p) == $row['password']) {
 				$token = md5(strtolower($row['username']).":".$row['password']);
@@ -21,9 +19,8 @@
 				setcookie("token", $token, time() + (86400 * 30), "/");
 				header("Location: index.php");
 			}
-			else {
+			else
 				$msg = "Username and password do not match.";
-			}
 		}
 		mysqli_close($dbc);
 	}
