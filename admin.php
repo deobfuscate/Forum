@@ -46,6 +46,7 @@
 			print "		<p>Failed to change Max posts.</p>\n";
 	}
 ?>
+		<p><a href="userlist.php">View user list</a></p>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
 <?php
 		$query = "SELECT settings.value FROM settings WHERE settings.setting = 'forum_name' LIMIT 1";
