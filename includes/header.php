@@ -20,3 +20,4 @@
 		<script src="assets/js/register.js"></script>
 	</head>
 	<body>
+		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a></p>
