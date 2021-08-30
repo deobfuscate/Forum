@@ -27,9 +27,7 @@
 
 	define("TITLE", "Login");
 	include_once("includes/header.php");
-?>
-		<h1>Login</h1>
-<?php
+
 	if(isset($msg)) { 
 		print "		<p class=\"error\">".$msg."</p>\n";
 	}

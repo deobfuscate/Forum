@@ -1,9 +1,7 @@
 <?php
 	define("TITLE", "Register");
 	include("includes/header.php");
-?>
-		<h1>Register</h1>
-<?php
+
 $html = '		<form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
 			<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus> <span id="exists">&nbsp;</span></p>
 			<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>

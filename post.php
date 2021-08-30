@@ -1,20 +1,7 @@
 <?php
 	define("TITLE", "Post a New Topic");
 	include("includes/header.php");
-?>
-		<h1>Home</h1>
-<?php
-	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
-	if (isset($u) && isLoggedin($u,$dbc)) {
-		print "		<p>Welcome back, {$u}!</p>\n		<p><a href=\"logout.php\">Logout</a></p>\n";
-	}
-	else {
-		print "		<p>Welcome, Guest!</p>\n		<p><a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>.</p>\n";
-	}
-?>
-		<br>
-		<h2>Post a new topic</h2>
-<?php
+
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject']) && isset($_POST['body']) && isset($_POST['cat'])) {
 		//get user id
 		$query = "SELECT id FROM users WHERE username = ?";
