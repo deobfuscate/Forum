@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a></p>
-		<h1>Home</h1>
+		<h1><?=$r["value"]?></h1>
 <?php
 	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
 	if (isset($u) && isLoggedin($u,$dbc)) {

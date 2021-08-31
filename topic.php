@@ -1,6 +1,8 @@
 <?php
 	define("TITLE", "View Topic");
 	include("includes/header.php");
+	if (isset($_GET['id'])) $parent = htmlspecialchars($_GET['id']);
+	if (!isset($parent)) die("No forum selected.");
 ?>
 		<p><a href="reply.php?topic=<?=$parent?>">Post a reply</a></p>
 <?php
