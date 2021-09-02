@@ -1,5 +1,6 @@
 <?php
-	if (!defined('TITLE')) exit();
+	if (!defined('TITLE')) // prevent header being accessed directly
+		exit();
 	include_once("includes/mysqli.php");
 	include_once("includes/functions.php");
 	$sql = "SELECT value FROM settings WHERE setting = 'forum_name'";
@@ -23,7 +24,8 @@
 		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a></p>
 		<h1><?=$r["value"]?></h1>
 <?php
-	if (isset($_COOKIE['username'])) $u = $_COOKIE['username'];
+	if (isset($_COOKIE['username']))
+		$u = $_COOKIE['username'];
 	if (isset($u) && isLoggedin($u,$dbc)) {
 		print "		<p>Welcome back, {$u}!</p>\n		<p><a href=\"logout.php\">Logout</a></p>\n";
 	}
