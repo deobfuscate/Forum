@@ -6,6 +6,7 @@
 	$sql = "SELECT value FROM settings WHERE setting = 'forum_name'";
 	$q = mysqli_query($dbc, $sql);
 	$r = mysqli_fetch_array($q, MYSQLI_ASSOC);
+	$forum_name = $r["value"];
 	if (mysqli_affected_rows($dbc) > 0)
 		$title = $r["value"]." - ".TITLE;
 	else
