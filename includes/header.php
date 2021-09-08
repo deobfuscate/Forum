@@ -8,7 +8,7 @@
 	$r = mysqli_fetch_array($q, MYSQLI_ASSOC);
 	$forum_name = $r["value"];
 	if (mysqli_affected_rows($dbc) > 0)
-		$title = $r["value"]." - ".TITLE;
+		$title = $r["value"] . " - " . TITLE;
 	else
 		$title = TITLE;
 ?>
@@ -23,8 +23,7 @@
 	</head>
 	<body>
 		<h1><?=$r["value"]?></h1>
-		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a> |
-<?php
+		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a> | <?php
 	if (isset($_COOKIE['username']))
 		$u = $_COOKIE['username'];
 	if (isset($u) && isLoggedin($u,$dbc)) {
