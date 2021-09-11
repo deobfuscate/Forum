@@ -26,11 +26,9 @@
 		<p><a href="index.php">Forums</a> | <a href="search.php">Search</a> | <a href="userlist.php">User List</a> | <?php
 	if (isset($_COOKIE['username']))
 		$u = $_COOKIE['username'];
-	if (isset($u) && isLoggedin($u,$dbc)) {
+	if (isset($u) && isLoggedin($u,$dbc))
 		print "Welcome back, {$u}! <a href=\"logout.php\">Logout</a>";
-	}
-	else {
+	else
 		print "Welcome, Guest! <a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>";
-	}
 ?></p>
 		<h2><? echo TITLE; ?></h2>
