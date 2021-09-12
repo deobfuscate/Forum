@@ -2,8 +2,10 @@
 	define("TITLE", "View Forum");
 	include("includes/header.php");
 
-	if (isset($_GET['id'])) $forum = htmlspecialchars($_GET['id']);
-	if (!isset($forum)) die("No forum selected.");
+	if (isset($_GET['id']))
+		$forum = htmlspecialchars($_GET['id']);
+	if (!isset($forum))
+		die("No forum selected.");
 ?>
 		<p><a href="post.php?cat=<?=$forum?>">Post a new topic</a></p>
 <?php
