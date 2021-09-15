@@ -12,10 +12,12 @@
 		$stmt->bind_param("s", $search);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		if ($stmt->affected_rows > 0)
+		if ($stmt->affected_rows > 0) {
+			print "		<p>Found {$stmt->affected_rows} results:</p>\n";
 			while ($r = $result->fetch_assoc()) {
 				print "		<p>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
 			}
+		}
 		else {
 			print "		<p>Could not find any results.</p>\n";
 		}
