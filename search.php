@@ -24,7 +24,7 @@
 	}
 ?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="register">
-			<p>Search for:<br><input name="search" type="text" size="32" autofocus></p>
+			<p>Search for:<br><input name="search" type="text" size="64" autofocus></p>
 			<p>In: <input name="where" type="radio" value="topics" checked>Topics</input> <input name="where" type="radio" value="posts">Posts</input></p>
 			<p><button>Search</button></p>
 		</form>
