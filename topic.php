@@ -16,7 +16,7 @@
 	$result = $stmt->get_result();
 	if ($result->num_rows > 0) {
 		$r = $result->fetch_assoc();
-		print "		<h3>{$r["title"]}</h3>\n		<p>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
+		print "		<h3>{$r["title"]}</h3>\n		<p>{$r["body"]}<br><em>Posted by {$r["username"]} at {$r["time"]}</em></p>\n";
 		//replies
 		$query = "SELECT posts.body, posts.time, users.username FROM posts INNER JOIN users ON posts.author = users.id WHERE posts.parent = ? ORDER BY time ASC";
 		$stmt = $dbc->prepare($query);
@@ -24,7 +24,7 @@
 		$stmt->execute();
 		$result = $stmt->get_result();
 		while ($r = $result->fetch_assoc())
-			print "		<p>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
+			print "		<p>{$r["body"]}<br><em>Posted by {$r["username"]} at {$r["time"]}</em></p>\n";
 	}
 	else
 		print "		<p>Specified topic does not exist.</p>\n";

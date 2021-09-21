@@ -16,7 +16,7 @@
 		if ($stmt->affected_rows > 0) {
 			print "		<p>Found {$stmt->affected_rows} results:</p>\n";
 			while ($r = $result->fetch_assoc())
-				print "		<p>{$r["body"]}<br><i>Posted by {$r["username"]} at {$r["time"]}</i></p>\n";
+				print "		<p>{$r["body"]}<br><em>Posted by {$r["username"]} at {$r["time"]}</em></p>\n";
 		}
 		else
 			print "		<p>Could not find any results.</p>\n";
