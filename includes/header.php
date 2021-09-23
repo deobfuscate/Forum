@@ -31,4 +31,4 @@
 	else
 		print "Welcome, Guest! <a href=\"login.php\">Login</a> or <a href=\"register.php\">register</a>";
 ?></p>
-		<h2><? echo TITLE; ?></h2>
+		<h2><?=TITLE?></h2>
