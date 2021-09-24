@@ -2,6 +2,7 @@
 A simple forum system using PHP and MySQL
 
 ## Featues
+* Categories and topics
 * User registration
 * Admin panel
 * Customizable options
@@ -12,5 +13,5 @@ A simple forum system using PHP and MySQL
 * Moderation tools
 * Robust pagination
 * Custom theme system
-* User management
+* User management (banning/suspension)
 * Moderation panel
