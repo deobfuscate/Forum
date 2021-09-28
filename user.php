@@ -6,7 +6,8 @@
 	$q = mysqli_query($dbc, $sql);
 	if (mysqli_affected_rows($dbc) > 0) {
 		$r = $result->fetch_assoc();
-		print "		<p>{$r["username"]}</p>";
+		print "		<p>{$r["username"]}</p>\n";
+		print "		<p><em>Joined on{$r["joined"]}</em></p>\n";
 	}
     
 	else {
