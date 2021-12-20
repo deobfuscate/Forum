@@ -15,3 +15,4 @@ A simple forum system using PHP and MySQL
 * Custom theme system
 * User management (banning/suspension)
 * Moderation panel
+* Ability to sticky topics
