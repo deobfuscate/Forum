@@ -1,7 +1,8 @@
 <?php
+	define("TITLE", "Login");
+	include("includes/header.php");
+
 	if (!empty($_POST)) {
-		include_once("includes/mysqli.php");
-		include_once("includes/functions.php");
 		
 		$u = mysqli_real_escape_string($dbc, strip_tags($_POST['username']));
 		$p = mysqli_real_escape_string($dbc, $_POST['password']);
@@ -22,11 +23,7 @@
 			else
 				$msg = "Username and password do not match.";
 		}
-		mysqli_close($dbc);
 	}
-
-	define("TITLE", "Login");
-	include_once("includes/header.php");
 
 	if(isset($msg)) { 
 		print "		<p class=\"error\">".$msg."</p>\n";
