@@ -2,7 +2,7 @@
 	define("TITLE", "Reply to a Topic");
 	include("includes/header.php");
 
-	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['body']) && isset($_POST['topic'])) {
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['body']) && isset($_POST['topic']) && !empty($_POST['body'])) {
 		//get user id
 		$query = "SELECT id FROM users WHERE username = ?";
 		$stmt = $dbc->prepare($query);
