@@ -1,5 +1,5 @@
 <?php
-	define("TITLE", "Categories");
+	define("TITLE", "Search");
 	include("includes/header.php");
 
 	if (isset($_POST['search']) && !empty($_POST['search'])) {

@@ -3,7 +3,9 @@
         exit();
     mysqli_close($dbc);
     unset($dbc);
+    $year = date("Y");
 ?>
-        <p>Copyright &copy; <?=date("Y") . " " . $forum_name?>. All rights reserved.</p>
+        <br>
+        <p>Copyright &copy; <?="{$year} {$forum_name}"?>. All rights reserved.</p>
     </body>
 </html>
