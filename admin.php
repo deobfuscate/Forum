@@ -1,7 +1,10 @@
 <?php
 	define("TITLE", "Categories");
 	include("includes/header.php");
-
+	
+	if (!isset($u) || !isLoggedin($u,$dbc) || getUserRole($u, $dbc) > 0 || getUserRole($u, $dbc) == -1) 
+		die("Unauthorized");
+	
 	if (isset($_POST['forum_name']) && !empty($_POST['forum_name'])) {
 		$forum_name = htmlspecialchars($_POST['forum_name']);
 		$query = "UPDATE settings SET value = ? WHERE settings.setting = 'forum_name'";

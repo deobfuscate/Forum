@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	if (!$problem) {
 		$ip = $_SERVER['REMOTE_ADDR'];
-		$sql = "INSERT INTO `forum`.`users` (`username`, `password`, `email`, `verified`, `joined`, `ip`, `user_lvl`) VALUES ('$u', MD5('$p'), '$e', '0', NOW(), '$ip', '0');";
+		$sql = "INSERT INTO `forum`.`users` (`username`, `password`, `email`, `verified`, `joined`, `ip`, `role`) VALUES ('$u', MD5('$p'), '$e', '0', NOW(), '$ip', '0');";
 		
 		$r = mysqli_query($dbc, $sql);
 		if (mysqli_affected_rows($dbc) == 1) {
