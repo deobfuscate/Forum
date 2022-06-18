@@ -9,8 +9,8 @@
 	<body>
 		<h1>Forum</h1>
 		<h2>Install</h2>
-<?php
-    // todo
-?>
+		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="install">
+			<p><input name="" type="text" size="32" maxlength="32" id="" placeholder="" autofocus></p>
+		</form>
     </body>
 </html>
