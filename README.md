@@ -9,6 +9,7 @@ A simple forum system using PHP and MySQL
 * Userlist page
 
 ## Planned features
+* Install script
 * Post filtering
 * Moderation tools
 * Robust pagination
