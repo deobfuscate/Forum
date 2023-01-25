@@ -1,8 +1,7 @@
 <?php
 	define("TITLE", "Register");
 	include("includes/header.php");
-
-$html = '		<form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
+	$formhtml = '		<form action="'.$_SERVER['PHP_SELF'].'" method="post" enctype="multipart/form-data" name="register">
 			<p><input name="username" type="text" size="32" maxlength="32" id="user" placeholder="Username" autofocus> <span id="exists">&nbsp;</span></p>
 			<p><input name="password" type="password" size="32" maxlength="32" placeholder="Password"></p>
 			<p><input name="confirm" type="password" size="32" maxlength="32" placeholder="Confirm Password"></p>
@@ -57,13 +56,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 	} 
 	else {
-		print $message.$html;
+		print $message.$formhtml;
 	}
 	mysqli_close($dbc);
 }
 else {
-	print $html;
+	if (isset($u))
+		print "		<p>You are logged in.</p>\n";
+	else
+		print $formhtml;
 }
-
 	include("includes/footer.php");
 ?>
