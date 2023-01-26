@@ -10,7 +10,11 @@
 		<h1>Forum</h1>
 		<h2>Install</h2>
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="install">
-			<p><input name="" type="text" size="32" maxlength="32" id="" placeholder="" autofocus></p>
+			<p>Database Host:<br><input name="dbhost" type="text" size="32" maxlength="32" autofocus></p>
+			<p>Database Username:<br><input name="dbuser" type="text" size="32" maxlength="32"></p>
+			<p>Database Password:<br><input name="dbpass" type="password" size="32" maxlength="32"></p>
+			<p>Database Name:<br><input name="dbname" type="text" size="32" maxlength="32"></p>
+			<p><button>Install</button></p>
 		</form>
     </body>
 </html>
