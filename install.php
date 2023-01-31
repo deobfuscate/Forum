@@ -1,3 +1,13 @@
+<?php
+	/* TODO:
+		Parse POST data
+		Run db structure sql
+		Create default user
+		Run checks to ensure install was successful
+	*/
+	if (file_exists("include/config.php"))
+		die("Forum already installed.");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
