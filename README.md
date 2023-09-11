@@ -1,5 +1,5 @@
 # Forum
-A simple forum system using PHP and MySQL
+A simple forum system using PHP and MySQL(MariaDB)
 
 ## Featues
 * Categories and topics
